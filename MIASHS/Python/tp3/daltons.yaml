@@ -1,0 +1,4 @@
+!!python/object:listepriorite.ListePriorite
+list:
+- !!python/tuple [3, Averell]
+- !!python/tuple [4, William]

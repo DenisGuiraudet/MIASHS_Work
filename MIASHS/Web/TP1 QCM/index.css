@@ -1,0 +1,86 @@
+html {
+  background-color: LightSlateGrey;
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+header {
+  position: fixed;
+  top:0;
+  left: 0;
+  background-color: LightSeaGreen;
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 200%;
+  font-family: cursive;
+  color: white;
+  border-bottom: black solid 3px;
+}
+
+form {
+  counter-reset: count-me-in;
+  overflow-y: scroll;
+  position: absolute;
+  top: 62px;
+  left: -8px;
+  right: -8px;
+  bottom: -10px;
+}
+
+section {
+  display: flex;
+  margin: 5px;
+  padding: 3px;
+  background-color: GhostWhite;
+  border: black solid 2px;
+  border-radius: 5px;
+}
+
+.block:first-child {
+  font-weight: bold;
+  font-size: 120%;
+  text-align: center;
+}
+
+.que {
+  float: left;
+  width: 50%;
+}
+
+.rep {
+  float: right;
+  width: 50%;
+  border-left: black solid 2px;
+  padding-left: 3px;
+}
+
+.block:not(:first-child) .que::before {
+  content: counter(count-me-in)".";
+	counter-increment: count-me-in;
+  font-weight: bold;
+}
+
+.block:last-child {
+  display: block;
+  text-align: center;
+}
+
+.block:last-child input {
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+}

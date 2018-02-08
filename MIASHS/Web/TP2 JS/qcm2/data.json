@@ -1,0 +1,27 @@
+[
+  { "idQ" : "q1",
+    "intituleQ" : "Le menu de navigation est toujours",
+    "Reponses" : {
+      "idR" : [ "r1", "r2", "r3", "r4", "r5"],
+      "intituleR" : [
+        "accessible depuis n'importe quelle page",
+        "l'endroit depuis lequel on peut acceder aux pages principales",
+        "vertical",
+        "defini par la balise <nav>",
+        "defini au sein de la balise <header>"
+      ]
+    }
+  },
+  { "idQ" : "q2",
+    "intituleQ" : " Que signifie HTML ?",
+    "Reponses" : {
+      "idR" : [ "r1", "r2", "r3", "r4"],
+      "intituleR" : [
+        "HyperTool Modeling Language",
+        "HyperTele Metric Language",
+        "HyperText Markup Language",
+        "HyperText Master Linux"
+      ]
+    }
+  }
+]

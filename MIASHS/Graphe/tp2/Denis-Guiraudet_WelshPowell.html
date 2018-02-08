@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Denis Guiraudet</title>
+  </head>
+
+  <body>
+
+    <div></div>
+
+  </body>
+
+  <script type="text/javascript">
+    // https://fr.wikipedia.org/wiki/Coloration_de_graphe
+
+    let div = document.querySelector("div");
+    div.appendChild(document.createTextNode("GRAPH RESULT"));
+    div.appendChild(document.createElement("br"));
+
+    // MISE EN PLACE DE LA LISTE DES SOMMETS
+    let listSommet = {
+      A : ["B", "C", "E", "F", "G"],
+      B : ["A", "C"],
+      C : ["A", "B", "D", "G"],
+      D : ["C", "E", "G"],
+      E : ["A", "D", "F", "G"],
+      F : ["A", "E"],
+      G : ["A", "C", "D", "E"]
+    }
+    console.log(listSommet);
+
+    // TRI DES SOMMETS PAR ORDRE DECROISSANT
+    var listSommetBis = {};
+    while (Object.keys(listSommet).length > 0) {
+
+      let sommetMax = null;
+      let listAdjacent = [];
+      for (let sommet in listSommet) {
+
+        if (listSommet[sommet].length >= listAdjacent.length) {
+          sommetMax = sommet;
+          listAdjacent = listSommet[sommet];
+        }
+
+      }
+
+      listSommetBis[sommetMax] = {listAdjacent};
+      delete listSommet[sommetMax];
+
+    }
+
+    // MISE EN PLACE DE LA PREMIERE COULEUR
+    var colors = [
+      [Object.keys(listSommetBis)[0]]
+    ];
+
+    // 4 //
+    var index = 0;
+    for (var sommet in listSommetBis) {
+      //console.log(listSommetBis[sommet]);
+
+      let found = false;
+      for (let idColor in colors) {
+
+        if (colors[idColor].includes(sommet)) {
+          found = true;
+          break;
+        }
+
+      }
+
+      if (!found) {
+
+        setColor();
+
+      }
+
+    }
+    console.log(listSommetBis);
+
+    // PLACEMENT COULEURS
+    for (let idColor in colors) {
+
+      let superColor = "rgb(" + Math.random() * 255 + "," + Math.random() * 255 + "," + Math.random() * 255 + ")";
+      for (let idSommet in colors[idColor]) {
+
+        listSommetBis[colors[idColor][idSommet]].color = superColor;
+
+      }
+
+    }
+    console.log(colors);
+    console.log(listSommetBis);
+
+    // AFFICHAGE
+    let table = document.createElement("table");
+    table.style.border = "solid 1px black";
+    for (let sommet in listSommetBis) {
+
+      let tr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        td1.style.border = "solid 1px black";
+        td1.style.background = listSommetBis[sommet].color;
+        td1.appendChild(document.createTextNode(sommet));
+      tr.appendChild(td1);
+        let td2 = document.createElement("td");
+        td2.style.border = "solid 1px black";
+        for (let adjacent in listSommetBis[sommet].listAdjacent) {
+          td2.appendChild(document.createTextNode(listSommetBis[sommet].listAdjacent[adjacent] + " "));
+        }
+      tr.appendChild(td2);
+
+      table.appendChild(tr);
+
+    }
+    div.appendChild(table);
+
+    div.appendChild(document.createTextNode("Nombre chromatique : " + colors.length));
+
+    function setColor() {
+
+      for (let idColor in colors) {
+        let colorFound = false;
+
+        for (let idSommet in colors[idColor]) {
+
+          if (listSommetBis[sommet].listAdjacent.includes(colors[idColor][idSommet])) {
+
+            colorFound = true;
+            break;
+
+          }
+
+        }
+
+        if (!colorFound) { // PEUT ETRE GO VERIFIER
+
+          let foundInColor = false;
+          for (let idSommet in colors[idColor]) {
+
+            if (listSommetBis[colors[idColor][idSommet]].listAdjacent.includes(sommet)) {
+
+              foundInColor = true;
+              break;
+
+            }
+
+          }
+
+          if (foundInColor) { // PAS LE BON
+
+            continue;
+
+          } else { // LE BON
+
+            colors[idColor].push(sommet);
+            return;
+
+          }
+
+        }
+
+      }
+
+      index++;
+      colors.push([sommet]);
+      return;
+
+    }
+
+  </script>
+
+</html>

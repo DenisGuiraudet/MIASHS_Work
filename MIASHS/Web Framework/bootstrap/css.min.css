@@ -1,0 +1,1 @@
+div.main .card{width:250px;height:300px;perspective:30rem}div.main .card:hover .back{transform:rotateY(180deg)}div.main .card:hover .front{transform:rotateY(360deg)}div.main .card .front,div.main .card .back{width:250px;height:300px;transition:transform 1s;backface-visibility:hidden}div.main .card .front{transform:rotateY(180deg)}
