@@ -23,12 +23,12 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
-        <img src="https://media.cdnandroid.com/be/ba/04/45/imagen-blizzard-battle-net-0thumb.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Marmotte
-      </a>
+          <img src="https://media.cdnandroid.com/be/ba/04/45/imagen-blizzard-battle-net-0thumb.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+          Marmotte
+        </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -44,101 +44,30 @@
       </div>
     </nav>
 
-    <div ng-controller="marmotteListController as marmotteList" class="main d-flex flex-wrap pl-3 pb-3">
+    <div ng-controller="marmotteListController" class="main d-flex flex-wrap pl-3 pb-3">
 
-      <div class="card position-relative mt-3 mr-3 border-0 ">
+
+      <div ng-repeat="marmotteElem in marmotteList" class="card position-relative mt-3 mr-3 border-0 ">
+
         <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="https://pbs.twimg.com/profile_images/877244949489532928/FZ8IzT5e_400x400.jpg" alt="Card image cap">
+          <img class="card-img-top" src="{{marmotteElem.img}}" alt="{{marmotteElem.name}}">
           <div class="card-footer">
-            <h5 class="card-title">World of Warcraft</h5>
+            <h5 class="card-title mb-0">{{marmotteElem.name}}</h5>
           </div>
         </div>
-      </div>
 
-      <div class="card position-relative mt-3 mr-3 border-0">
-        <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="https://img.etsystatic.com/il/a65cb2/1112156364/il_fullxfull.1112156364_cruz.jpg" alt="Card image cap">
+        <div class="back position-absolute border rounded">
+          <img class="card-img-top" src="https://cdn.vox-cdn.com/thumbor/O_m3r1bT2CtzOHY-9cwDcL4lCgQ=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/53872699/battle_net.0.jpg" alt="Blizzard">
           <div class="card-footer">
-            <h5 class="card-title">Overwatch</h5>
+            <h5 class="card-title mb-0">???</h5>
           </div>
         </div>
-      </div>
-
-      <div class="card position-relative mt-3 mr-3 border-0">
-        <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="https://images.sftcdn.net/images/t_optimized,f_auto/p/2c12bade-9b31-11e6-9e1f-00163ed833e7/2991414032/starcraft-2-logo.png" alt="Card image cap">
-          <div class="card-footer">
-            <h5 class="card-title">Starcraft</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="card position-relative mt-3 mr-3 border-0">
-        <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="https://ccelenn.files.wordpress.com/2014/05/d3.png" alt="Card image cap">
-          <div class="card-footer">
-            <h5 class="card-title">Diablo</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="card position-relative mt-3 mr-3 border-0">
-        <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="http://www.heroesbuilder.com/images/users/67795_lilivani.png" alt="Card image cap">
-          <div class="card-footer">
-            <h5 class="card-title">Heroes of the Storm</h5>
-          </div>
-        </div>
-      </div>
 
 
-      <div class="card position-relative mt-3 mr-3 border-0">
-        <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="https://images.sftcdn.net/images/t_optimized,f_auto/p/2c12bade-9b31-11e6-9e1f-00163ed833e7/2991414032/starcraft-2-logo.png" alt="Card image cap">
-          <div class="card-footer">
-            <h5 class="card-title">Starcraft</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="card position-relative mt-3 mr-3 border-0">
-        <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="http://www.heroesbuilder.com/images/users/67795_lilivani.png" alt="Card image cap">
-          <div class="card-footer">
-            <h5 class="card-title">Heroes of the Storm</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="card position-relative mt-3 mr-3 border-0">
-        <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="https://ccelenn.files.wordpress.com/2014/05/d3.png" alt="Card image cap">
-          <div class="card-footer">
-            <h5 class="card-title">Diablo</h5>
-          </div>
-        </div>
-      </div>
-
-	  <div class="card position-relative mt-3 mr-3 border-0 ">
-        <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="https://pbs.twimg.com/profile_images/877244949489532928/FZ8IzT5e_400x400.jpg" alt="Card image cap">
-          <div class="card-footer">
-            <h5 class="card-title">World of Warcraft</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="card position-relative mt-3 mr-3 border-0">
-        <div class="front position-absolute border rounded">
-          <img class="card-img-top" src="https://img.etsystatic.com/il/a65cb2/1112156364/il_fullxfull.1112156364_cruz.jpg" alt="Card image cap">
-          <div class="card-footer">
-            <h5 class="card-title">Overwatch</h5>
-          </div>
-        </div>
       </div>
 
     </div>
 
   </body>
 
-</html>
+  </html>
