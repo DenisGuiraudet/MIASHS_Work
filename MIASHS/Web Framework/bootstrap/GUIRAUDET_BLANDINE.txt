@@ -1,8 +1,0 @@
-Etudiant: GUIRAUDET Denis
-Intervenant: BLANDINE Descamps
-
-Bootstrap 4 + SASS
-
-web: https://htmlpreview.github.io/?https://github.com/Snoopryx/work/blob/master/MIASHS/Web%20Framework/bootstrap/index.html
-
-git: https://github.com/Snoopryx/work/tree/master/MIASHS/Web%20Framework/bootstrap
