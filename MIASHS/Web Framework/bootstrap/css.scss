@@ -1,6 +1,8 @@
 
 div.main{
 
+  justify-content: center;
+
   .card {
     width: 250px;
     height: 300px;
@@ -18,10 +20,16 @@ div.main{
     }
 
     .front, .back {
-      width: 250px;
-      height: 300px;
-    transition: transform 1s;
-    backface-visibility: hidden;
+      width: inherit;
+      height: inherit;
+      transition: transform 1s;
+      backface-visibility: hidden;
+
+      img {
+        object-fit: cover;
+        height: 240px;
+      }
+
     }
 
     .front {
