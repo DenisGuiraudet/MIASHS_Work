@@ -1,0 +1,33 @@
+
+div.main{
+
+  .card {
+    width: 250px;
+    height: 300px;
+    perspective: 30rem;
+
+    &:hover {
+
+      .back {
+        transform: rotateY(180deg);
+      }
+      .front {
+        transform: rotateY(360deg);
+      }
+
+    }
+
+    .front, .back {
+      width: 250px;
+      height: 300px;
+    transition: transform 1s;
+    backface-visibility: hidden;
+    }
+
+    .front {
+      transform: rotateY(180deg);
+    }
+
+  }
+
+}
