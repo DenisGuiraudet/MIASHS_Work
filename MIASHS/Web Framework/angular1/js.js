@@ -1,12 +1,25 @@
 
-var 
+var maMarmotte = {
+  data : {
+    id1 : {
+      name : "OW",
+      img : null,
+      help : "shooter"
+    },
+    id2 : {
+      name : "WoW",
+      img : null,
+      help : "meuporg"
+    }
+  }
+}
 
 angular.module('marmotte', [])
   .controller('marmotteListController' ,function() {
 
     var marmotteList = this;
 
-
+    console.log(maMarmotte);
 
   });
 
@@ -35,6 +48,7 @@ function get_back_side() {
     backDiv.classList.add("card-footer");
       let backDivH = document.createElement("h5");
       backDivH.classList.add("card-title");
+      backDivH.classList.add("mb-0");
       backDivH.appendChild(document.createTextNode("???"));
     backDiv.appendChild(backDivH);
   back.appendChild(backDiv);
