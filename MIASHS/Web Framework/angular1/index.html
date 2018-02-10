@@ -48,15 +48,18 @@
 
       <div ng-repeat="marmotteElem in marmotteList" class="card position-relative mt-3 mr-3 border-0 ">
 
-        <div class="front position-absolute border rounded">
+        <div ng-click="flipFront($event)" class="front position-absolute border rounded">
           <img class="card-img-top" src="{{marmotteElem.img}}" alt="{{marmotteElem.name}}">
           <div class="card-footer">
             <h5 class="card-title mb-0">{{marmotteElem.name}}</h5>
           </div>
         </div>
 
-        <div class="back position-absolute border rounded">
+        <div ng-click="flipBack($event)" class="back position-absolute border rounded">
           <img class="card-img-top" src="https://cdn.vox-cdn.com/thumbor/O_m3r1bT2CtzOHY-9cwDcL4lCgQ=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/53872699/battle_net.0.jpg" alt="Blizzard">
+          <div class="card-img-overlay text-light font-weight-bold text-center d-none">
+            <p class="card-text">{{marmotteElem.help}}</p>
+          </div>
           <div class="card-footer">
             <h5 class="card-title mb-0">???</h5>
           </div>

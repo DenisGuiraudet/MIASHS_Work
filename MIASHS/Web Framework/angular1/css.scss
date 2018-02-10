@@ -1,6 +1,5 @@
 
 div.main{
-
   justify-content: center;
 
   .card {
@@ -10,11 +9,8 @@ div.main{
 
     &:hover {
 
-      .back {
-        transform: rotateY(180deg);
-      }
-      .front {
-        transform: rotateY(360deg);
+      .card-img-overlay {
+        display: inline-block !important;
       }
 
     }
