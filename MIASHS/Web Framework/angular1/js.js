@@ -57,7 +57,9 @@ angular.module('marmotte', [])
       }
       if (nbFlip == $scope.marmotteList.length) {
         document.querySelector(".alert").classList.remove("d-none");
-
+        nbFlip = 0;
+        tempActu = null;
+        tempCard = null;
       }
     }
 
