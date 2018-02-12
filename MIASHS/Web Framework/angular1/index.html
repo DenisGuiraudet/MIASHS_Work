@@ -18,7 +18,7 @@
   	<link rel="stylesheet" href="./css.min.css">
   </head>
 
-  <body>
+  <body ng-controller="marmotteListController">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
@@ -43,8 +43,12 @@
       </div>
     </nav>
 
-    <div ng-controller="marmotteListController" class="main d-flex flex-wrap pl-3 pb-3">
+    <div class="alert alert-success d-none" role="alert">
+      Bravo ! Denis Steam : <strong>Snoopryx</strong>, Matthieu Steam : <strong>Kamideus</strong>
+      <button ng-click="ripley($event)" type="button" class="btn btn-outline-success bg-light position-absolute">Ripley</button>
+    </div>
 
+    <div class="main d-flex flex-wrap pl-3 pb-3">
 
       <div ng-repeat="marmotteElem in marmotteList" class="card position-relative mt-3 mr-3 border-0 ">
 

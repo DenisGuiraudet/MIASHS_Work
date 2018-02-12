@@ -6,16 +6,23 @@ var nbFlip = 0;
 angular.module('marmotte', [])
   .controller('marmotteListController', function($scope) {
 
-    $scope.marmotteList = [];
+    $scope.marmotteList;
 
-    db.collection("data").get().then((querySnapshot) => {
+    $scope.loadData = function() {
 
-        querySnapshot.forEach((doc) => {
-          $scope.marmotteList.push(doc.data(), doc.data());
-          $scope.marmotteList.sort(function() { return 0.5 - Math.random() });
-          $scope.$apply();
-        });
-    });
+      $scope.marmotteList = [];
+
+      db.collection("data").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            $scope.marmotteList.push(doc.data(), doc.data());
+            $scope.marmotteList.sort(function() { return 0.5 - Math.random() });
+            $scope.$apply();
+          });
+      });
+
+    };
+
+    $scope.loadData();
 
     $scope.flipBack = function($event) {
       if(waiting == true){
@@ -49,11 +56,15 @@ angular.module('marmotte', [])
         }
       }
       if (nbFlip == $scope.marmotteList.length) {
-        alert("Bravo !\n Denis Steam : Snoopryx \n Matthieu Steam : Kamideus");
-        
+        document.querySelector(".alert").classList.remove("d-none");
+
       }
     }
 
+    $scope.ripley = function($event) {
+      $scope.loadData();
+      document.querySelector(".alert").classList.add("d-none");
 
+    }
 
   });
