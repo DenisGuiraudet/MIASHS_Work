@@ -3,15 +3,18 @@ var tempActu = null;
 var waiting = false;
 var nbFlip = 0;
 
+
 angular.module('marmotte', [])
   .controller('marmotteListController', function($scope) {
 
     $scope.marmotteList;
+    $scope.score;
+    $scope.scoreTot;
 
     $scope.loadData = function() {
 
       $scope.marmotteList = [];
-
+      $scope.score = 0;
       db.collection("data").get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             $scope.marmotteList.push(doc.data(), doc.data());
@@ -19,6 +22,7 @@ angular.module('marmotte', [])
             $scope.$apply();
           });
       });
+
 
     };
 
@@ -42,6 +46,7 @@ angular.module('marmotte', [])
           tempActu = null;
           waiting = false;
           nbFlip += 2;
+          $scope.score += 10;
         }
         else{
           setTimeout(function () {
@@ -52,10 +57,13 @@ angular.module('marmotte', [])
             tempCard = null;
             tempActu = null;
             waiting = false;
+            $scope.score -= 2;
           }, 1000);
         }
       }
       if (nbFlip == $scope.marmotteList.length) {
+        $scope.scoreTot = 10 * $scope.marmotteList.length  /2 ;
+        console.log($scope.scoreTot);
         document.querySelector(".alert").classList.remove("d-none");
         nbFlip = 0;
         tempActu = null;
