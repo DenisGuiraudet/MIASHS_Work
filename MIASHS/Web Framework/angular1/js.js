@@ -3,7 +3,9 @@ var tempActu = null;
 var waiting = false;
 var nbFlip = 0;
 
-
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 angular.module('marmotte', [])
   .controller('marmotteListController', function($scope) {
 
