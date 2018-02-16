@@ -81,7 +81,7 @@ class ListePriorite:
 
     # New exo
 
-    def __add__(self, item): # +=
+    def __add__(self, item): # +
         # self.add(item[0], item[1])
         bisect.insort(self.list, item)
         return self
