@@ -30,6 +30,36 @@ angular.module('marmotte', [])
 
     $scope.loadData();
 
+    function checkSecondCard () {
+      if (tempCard.parentElement.querySelector(".front h5.card-title").textContent == tempActu.parentElement.querySelector(".front h5.card-title").textContent) {
+        tempCard = null;
+        tempActu = null;
+        waiting = false;
+        nbFlip += 2;
+        $scope.score += 10;
+      }
+      else{
+        setTimeout(function () {
+          var frontElement = tempCard.parentElement.querySelector(".front");
+          var backElement = tempCard.parentElement.querySelector(".back");
+          var frontActElement = tempActu.parentElement.querySelector(".front");
+          var backActElement = tempActu.parentElement.querySelector(".back");
+          frontElement.style.transform = "rotateY(180deg)";
+          backElement.style.transform = "none";
+          frontActElement.style.transform = "rotateY(180deg)";
+          backActElement.style.transform = "none";
+          tempCard = null;
+          tempActu = null;
+          waiting = false;
+          $scope.score -= 2;
+        }, 1000);
+      }
+    }
+
+    $scope.calculateScoreTotal = function(length){
+      return 10 * length/2 ;
+    }
+
     $scope.flipBack = function($event) {
       if(waiting == true){
         return;
@@ -43,29 +73,10 @@ angular.module('marmotte', [])
         waiting = false;
       }
       else{
-        if (tempCard.parentElement.querySelector(".front h5.card-title").textContent == tempActu.parentElement.querySelector(".front h5.card-title").textContent) {
-          tempCard = null;
-          tempActu = null;
-          waiting = false;
-          nbFlip += 2;
-          $scope.score += 10;
-        }
-        else{
-          setTimeout(function () {
-            tempCard.parentElement.querySelector(".front").style.transform = "rotateY(180deg)";
-            tempCard.parentElement.querySelector(".back").style.transform = "none";
-            tempActu.parentElement.querySelector(".front").style.transform = "rotateY(180deg)";
-            tempActu.parentElement.querySelector(".back").style.transform = "none";
-            tempCard = null;
-            tempActu = null;
-            waiting = false;
-            $scope.score -= 2;
-          }, 1000);
-        }
+        checkSecondCard();
       }
       if (nbFlip == $scope.marmotteList.length) {
-        $scope.scoreTot = 10 * $scope.marmotteList.length  /2 ;
-        console.log($scope.scoreTot);
+        $scope.scoreTot = $scope.calculateScoreTotal($scope.marmotteList.length);
         document.querySelector(".alert").classList.remove("d-none");
         nbFlip = 0;
         tempActu = null;
@@ -78,5 +89,4 @@ angular.module('marmotte', [])
       document.querySelector(".alert").classList.add("d-none");
 
     }
-
   });
