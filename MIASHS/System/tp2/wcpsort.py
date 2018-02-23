@@ -10,7 +10,7 @@ for arg in sys.argv[2:]:
     if pid == 0:
         os._exit(0)
     else:
-        if os.system("wc "+str(arg)+" sort -k "+sys.argv[1]) != 0:
+        if os.system("wc "+str(arg)+" sort "+sys.argv[1]) != 0:
             numberError += 1
         forkList.append(pid)
 
