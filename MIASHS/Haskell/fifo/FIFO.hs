@@ -6,9 +6,10 @@ isEmpty (FIFO []) = True
 isEmpty _ = False
 
 add :: FIFO a -> a -> FIFO a
-add (FIFO file) x = FIFO (x:file)
+add (FIFO []) y = FIFO (y:[])
+add (FIFO (x:xs)) y = FIFO ((x:xs) ++ [y])
 
-haed:: FIFO a -> Maybe a
+haed :: FIFO a -> Maybe a
 haed (FIFO []) = Nothing
 haed (FIFO (x:xs)) = Just x
 
